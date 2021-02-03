@@ -7,7 +7,10 @@ import {Route, Switch} from 'react-router-dom';
 import Background from './food-bg.jpg';
 
 const App = ({RestoService}) => {
-    console.log(RestoService.getMenuItems());
+
+    RestoService.getMenuItems()
+    .then( menu => console.log(menu))
+    .catch(error => {console.log('Произошла ошибка')})
 
     return (
         <div style={{background: `url(${Background}) center center/cover no-repeat`}} className="app">
